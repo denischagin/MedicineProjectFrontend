@@ -31,7 +31,7 @@ const Header = () => {
           exitButtonText="Я из другого города"
           onClose={() => setOpenAlert(false)}
           onSubmit={handleAlertSubmit}
-          position={{ top: "40px", left: "40px" }}
+          position={{ top: "40px", left: "0" }}
         />
       </Container>
     </div>
