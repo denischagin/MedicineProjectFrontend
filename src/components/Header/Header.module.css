@@ -1,0 +1,8 @@
+.header {
+  padding: 10px 0;
+}
+
+.header_wrapper {
+  display: flex;
+  position: relative;
+}
