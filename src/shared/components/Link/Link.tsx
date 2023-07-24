@@ -5,6 +5,6 @@ interface LinkProps extends NavLinkProps, RefAttributes<HTMLAnchorElement> {
   to: string;
 }
 
-export const Link: FC<LinkProps> = ({ to, ...restProps }) => {
-  return <NavLink to={to} {...restProps} />;
+export const Link: FC<LinkProps> = ({ to, className, ...restProps }) => {
+  return <NavLink to={to} className={className} {...restProps} />;
 };

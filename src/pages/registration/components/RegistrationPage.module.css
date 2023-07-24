@@ -1,0 +1,9 @@
+@import url('/src/app/styles/variables.css');
+
+.reg_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--auth-background);
+  flex-grow: 1;
+}

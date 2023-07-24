@@ -1,1 +1,1 @@
-export { SignInGosuslugi} from './components/SignInGosuslugi';
+export { LoginGosuslugi as SignInGosuslugi} from './components/LoginGosuslugi';

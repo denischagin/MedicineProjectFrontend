@@ -1,4 +1,4 @@
-.loginForm {
+.regForm {
   display: flex;
   flex-direction: column;
 }
@@ -23,5 +23,4 @@
 .submit {
   align-self: center;
   margin-top: 43px;
-  width: 230px;
 }
