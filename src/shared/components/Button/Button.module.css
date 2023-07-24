@@ -8,4 +8,5 @@
   border-radius: 10px;
   border: 1px solid #000;
   width: fit-content;
+  cursor: pointer;
 }
