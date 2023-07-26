@@ -1,0 +1,12 @@
+.drawer_menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer_menu a {
+  color: black
+}
+
+.drawer_menu a + a {
+  
+}

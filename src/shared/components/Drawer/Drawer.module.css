@@ -1,0 +1,28 @@
+.drawer {
+  display: flex;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.50);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s;
+}
+
+.drawer_content {
+  min-width: 100px;
+  background-color: white;
+  transform: translateX(-100%);
+  transition: all 0.4s;
+}
+
+.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.active .drawer_content {
+  transform: translateX(0);
+}
+
+
