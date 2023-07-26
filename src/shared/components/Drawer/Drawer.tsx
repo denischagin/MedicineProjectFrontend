@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes, MouseEventHandler, ReactNode } from "react";
+import { FC, HTMLAttributes, ReactNode } from "react";
 import css from "./Drawer.module.css";
 
 interface DrawerProps extends HTMLAttributes<HTMLDivElement> {
