@@ -1,8 +1,9 @@
-import React, { FC, InputHTMLAttributes, ReactElement } from "react";
+import React, { FC } from "react";
 import { Input } from "../Input/Input";
 import { InputGroup } from "../InputGroup";
 import { InputRight } from "../InputRight";
 import eyeSvg from "../icons/eye.svg";
+import css from '../Input.module.css'
 
 interface InputPasswordProps {
   fullWidth?: boolean;
@@ -22,6 +23,7 @@ export const InputPassword: FC<InputPasswordProps> = ({
       <InputRight
         element={
           <img
+            className={css.password_button}
             src={eyeSvg}
             alt="eye"
             onClick={() => setShowPassword((prev) => !prev)}

@@ -6,7 +6,7 @@ import css from "./Header.module.css";
 import burgerMenu from 'widgets/Header/assets/burger-menu.svg'
 
 export const Header = () => {
-  const [openDrawer, setOpenDrawer] = useState(true);
+  const [openDrawer, setOpenDrawer] = useState(false);
 
   return (
     <div className={css.header}>
