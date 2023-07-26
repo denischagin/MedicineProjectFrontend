@@ -1,12 +1,35 @@
+@import url("/src/app/styles/variables.css");
+
 .drawer_menu {
   display: flex;
   flex-direction: column;
+  width: 290px;
 }
 
-.drawer_menu a {
-  color: black
+.drawer_menu > .menu_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 18px;
+  height: 65px;
+  border-top: 1px solid white;
 }
 
-.drawer_menu a + a {
-  
+.drawer_menu > .menu_item_arrow {
+  border: 0;
+  justify-content: end;
+  margin-right: -10px;
+}
+
+.drawer_menu > .menu_item:last-child {
+  border-bottom: 1px solid white;
+}
+
+.menu_item_text
+{
+  font-size: 32px;
+}
+
+.drawer_content {
+  background-color: var(--drawer-menu-bg);
 }
