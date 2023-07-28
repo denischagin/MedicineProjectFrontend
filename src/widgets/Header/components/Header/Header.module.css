@@ -1,0 +1,38 @@
+@import "/src/app/styles/variables.css";
+
+.header {
+  background: var(--header-background);
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 26px;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu a + a {
+  margin-left: 86px;
+}
+
+.burger_menu {
+  display: none;
+}
+
+@media screen and (max-width: 530px) {
+  .menu {
+    display: none;
+  }
+
+  .burger_menu {
+    display: flex;
+  }
+
+  .wrapper {
+    flex-direction: row-reverse;
+  }
+}

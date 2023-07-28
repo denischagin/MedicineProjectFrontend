@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "baseUrl": "./src",
     "target": "es5",
     "lib": [
       "dom",
@@ -20,7 +22,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src", "index.d.ts",  "**/*.ts", "**/*.tsx" ],
+  "exclude": ["node_modules"]
 }

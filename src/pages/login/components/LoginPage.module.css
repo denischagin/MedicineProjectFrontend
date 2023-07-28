@@ -1,0 +1,10 @@
+@import url('/src/app/styles/variables.css');
+
+.login_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--auth-background);
+  flex-grow: 1;
+  padding: 0;
+}

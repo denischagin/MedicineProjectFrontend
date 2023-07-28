@@ -1,0 +1,7 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  background: url('/src/app/assets/common-bg.png') no-repeat;
+  background-size: cover;
+  height: 100vh;
+}

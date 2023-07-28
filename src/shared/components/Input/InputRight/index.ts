@@ -1,0 +1,1 @@
+export { InputRight } from "./InputRight";
