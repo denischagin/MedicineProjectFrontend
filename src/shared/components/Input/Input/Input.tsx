@@ -1,8 +1,9 @@
 import React, { FC, InputHTMLAttributes } from 'react'
 import css from '../Input.module.css'
-import { InputProps as CommonProps } from 'shared/components/input/types';
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement>, CommonProps {}
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  fullWidth?: boolean
+}
 
 export const Input: FC<InputProps> = ({fullWidth, ...props}) => {
   const classes = fullWidth ? [css.fullwidth, css.input].join(" ") : css.input

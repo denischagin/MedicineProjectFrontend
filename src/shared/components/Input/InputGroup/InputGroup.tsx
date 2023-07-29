@@ -1,9 +1,9 @@
 import { FC, ReactElement } from "react";
 import css from "../Input.module.css";
-import { InputProps } from "shared/components/input/types";
 
-interface InputGroupProps extends InputProps {
+interface InputGroupProps {
   children: ReactElement | ReactElement[];
+  fullWidth?: boolean
 }
 
 export const InputGroup: FC<InputGroupProps> = ({ children, fullWidth }) => {

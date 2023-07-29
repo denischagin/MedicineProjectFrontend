@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { Button } from "shared/components/Button";
-import { Input } from "shared/components/input/Input";
-import { InputPassword } from "shared/components/input/InputPassword";
+import { Input } from "shared/components/Input/Input";
+import { InputPassword } from "shared/components/Input/InputPassword";
 import { Link } from "shared/components/Link";
 import { paths } from "shared/routes";
 import css from "./LoginFormContent.module.css";
