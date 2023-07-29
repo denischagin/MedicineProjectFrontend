@@ -1,1 +1,1 @@
-export { InputLeft as InputRight } from "./InputLeft";
+export {InputLeft} from './InputLeft';
