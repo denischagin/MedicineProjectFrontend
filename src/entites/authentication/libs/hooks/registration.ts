@@ -5,14 +5,14 @@ import {
   IRegistration,
 } from "entites/authentication/models/api";
 import { useMutation, useQueryClient } from "react-query";
-import { TokenService } from "shared/libs";
+import { TokenLocalStorage } from "shared/libs";
 
 export const useRegistration = () => {
   const result = useMutation<IAuthResponse, AxiosError, IRegistration>({
     mutationFn: (credits) => AuthenticationService.signIn(credits),
     onSuccess: ({ token, refreshToken }) => {
-      TokenService.setAccessToken(token);
-      TokenService.setRefreshToken(refreshToken);
+      TokenLocalStorage.setAccessToken(token);
+      TokenLocalStorage.setRefreshToken(refreshToken);
     },
   });
 

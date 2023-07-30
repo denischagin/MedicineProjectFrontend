@@ -20,5 +20,6 @@ export interface TextProps
     | "ol"
     | "li"
     | "a"
-    | "label";
+    | "label"
+    | 'button';
 }

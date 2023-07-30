@@ -1,1 +1,1 @@
-export * from "./localstorage/TokenService"
+export { TokenLocalStorage } from "./localstorage/token";

@@ -1,4 +1,4 @@
-export class TokenService {
+export class TokenLocalStorage {
   public static setAccessToken = (token: string) => {
     localStorage.setItem("token", token);
   };

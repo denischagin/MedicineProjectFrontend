@@ -1,4 +1,4 @@
-import { FC, FormEventHandler, useState } from "react";
+import { FC, FormEventHandler, useEffect, useState } from "react";
 import { Button } from "shared/components/Button";
 import { Input } from "shared/components/Input/Input";
 import { InputPassword } from "shared/components/Input/InputPassword";
@@ -6,26 +6,42 @@ import { Link } from "shared/components/Link";
 import { paths } from "shared/routes";
 import css from "./LoginFormContent.module.css";
 import { useLogin } from "./../../../../entites/authentication/libs/hooks/login";
-import { Navigate } from "react-router";
 import { Text } from "shared/components/Text";
+import { useNavigate } from "react-router";
+import { useViewer } from "entites/viewer";
 
 export const LoginFormContent: FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
-  const { mutate: loginMutate, isSuccess, isError, error } = useLogin();
+  const navigate = useNavigate();
+
+  const {
+    mutate: loginMutate,
+    isSuccess,
+    isError,
+    error,
+    data: viewer,
+  } = useLogin();
+  const { setCurrentViewer } = useViewer();
 
   const handleSubmitForm: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     loginMutate({ email, password });
   };
 
+  useEffect(() => {
+    if (isSuccess) {
+      navigate(paths.home, { replace: true });
+      const { email, role, username } = viewer;
+      setCurrentViewer({ email, role, username });
+    }
+  }, [isSuccess, navigate]);
+
   return (
     <form onSubmit={handleSubmitForm} className={css.loginForm}>
       <div className={css.fields}>
-        {isSuccess && <Navigate to={paths.home} replace />}
-
         <Text component="label">Эл. Почта/Номер телефона</Text>
         <Input
           value={email}

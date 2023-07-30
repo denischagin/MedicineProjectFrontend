@@ -1,5 +1,5 @@
 import axios from "axios";
-import { TokenService } from "shared/libs";
+import { TokenLocalStorage } from "shared/libs";
 
 export const $api = axios.create({
   baseURL: "https://localhost:5000/api",
@@ -7,7 +7,7 @@ export const $api = axios.create({
 });
 
 $api.interceptors.request.use((config) => {
-  const token = TokenService.getAccessToken();
+  const token = TokenLocalStorage.getAccessToken();
   config.headers["Authorization"] = `Bearer ${token}`;
   return config;
 });
@@ -25,16 +25,16 @@ $api.interceptors.response.use(
     ) {
       originalRequest._isRetry = true;
       try {
-        const accessToken = TokenService.getAccessToken();
-        const refreshToken = TokenService.getRefreshToken();
+        const accessToken = TokenLocalStorage.getAccessToken();
+        const refreshToken = TokenLocalStorage.getRefreshToken();
 
         const response = await axios.post(
           `https://localhost:5000/api/Accounts/refresh-token`,
           { accessToken, refreshToken }
         );
 
-        TokenService.setAccessToken(response.data.token);
-        TokenService.setRefreshToken(response.data.refreshToken);
+        TokenLocalStorage.setAccessToken(response.data.token);
+        TokenLocalStorage.setRefreshToken(response.data.refreshToken);
 
         return $api.request(originalRequest);
       } catch (e) {
