@@ -3,13 +3,11 @@ import { Button } from "shared/components/Button";
 import { Input } from "shared/components/Input/Input";
 import { InputPassword } from "shared/components/Input/InputPassword";
 import { Link } from "shared/components/Link";
+import { Text } from "shared/components/Text";
 import { paths } from "shared/routes";
 import css from "./RegistrationFormContent.module.css";
 
-
-
 export const RegistrationFormContent: FC = () => {
-  
   const handleSubmitForm = () => {};
 
   const [showPassword, setShowPassword] = useState(false);
@@ -17,15 +15,16 @@ export const RegistrationFormContent: FC = () => {
   return (
     <form onSubmit={handleSubmitForm} className={css.regForm}>
       <div className={css.fields}>
-        <label htmlFor="login">Эл. Почта/Номер телефона</label>
+        <Text component="label">Эл. Почта/Номер телефона</Text>
         <Input fullWidth />
-        <label>Пароль</label>
+        
+        <Text component="label">Пароль</Text>
         <InputPassword
           fullWidth
           showPassword={showPassword}
           setShowPassword={setShowPassword}
         />
-        <label>Повторите пароль</label>
+        <Text component="label">Повторите пароль</Text>
         <InputPassword
           fullWidth
           showPassword={showRepeat}

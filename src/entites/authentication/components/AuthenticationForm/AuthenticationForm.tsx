@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import css from "./AuthenticationForm.module.css";
 import formImg from "entites/authentication/assets/form-img.png";
+import { Text } from "shared/components/Text";
 
 interface AuthenticationFormProps {
   title: string;
@@ -15,7 +16,9 @@ export const AuthenticationForm: FC<AuthenticationFormProps> = ({
 }) => {
   return (
     <div className={css.wrapper}>
-      <h2 className={css.header}>{title}</h2>
+      <Text component="h2" fz="s40" className={css.header}>
+        {title}
+      </Text>
       <div className={css.form_wrapper}>
         <img src={formImg} className={css.form_img} alt="doctor" />
         <div className={css.form}>{form}</div>

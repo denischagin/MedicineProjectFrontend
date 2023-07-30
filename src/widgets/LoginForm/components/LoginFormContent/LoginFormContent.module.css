@@ -25,3 +25,8 @@
   margin-top: 43px;
   width: 230px;
 }
+
+.error {
+  align-self: center;
+  margin-top: 10px;
+}

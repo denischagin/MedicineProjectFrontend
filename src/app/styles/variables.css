@@ -1,10 +1,13 @@
 :root {
   --header-background: #114FAB;
   --drawer-menu-bg: #114FAB;
-  --light-font: #FFFFFF;
-  --dark-font: #000000;
   --auth-background: #6A94E5;
   --form-background: #6E80C3;
   --input-w-small: "100px";
-  --button-filled-color: #114FAB
+  --button-filled-color: #114FAB;
+
+  /* Font colors */
+  --light-font: #FFFFFF;
+  --dark-font: #000000;
+  --error-font: #ab0000;
 }
