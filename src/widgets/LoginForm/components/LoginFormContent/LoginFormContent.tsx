@@ -9,6 +9,7 @@ import { useLogin } from "./../../../../entites/authentication/libs/hooks/login"
 import { Text } from "shared/components/Text";
 import { useNavigate } from "react-router";
 import { useViewer } from "entites/viewer";
+import { Loader } from "shared/components/Loader";
 
 export const LoginFormContent: FC = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -23,6 +24,7 @@ export const LoginFormContent: FC = () => {
     isError,
     error,
     data: viewer,
+    isLoading,
   } = useLogin();
   const { setCurrentViewer } = useViewer();
 
@@ -67,6 +69,8 @@ export const LoginFormContent: FC = () => {
       </Link>
 
       <Button className={css.submit}>Войти</Button>
+
+      {isLoading && <Text color="grey">Загрузка...</Text>}
 
       {isError && (
         <Text color="error" fz="s16" className={css.error}>

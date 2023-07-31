@@ -1,6 +1,7 @@
 .loginForm {
   display: flex;
   flex-direction: column;
+  padding-bottom: 10px;
 }
 
 .fields {
@@ -24,9 +25,9 @@
   align-self: center;
   margin-top: 43px;
   width: 230px;
+  margin-bottom: 10px;
 }
 
 .error {
   align-self: center;
-  margin-top: 10px;
 }

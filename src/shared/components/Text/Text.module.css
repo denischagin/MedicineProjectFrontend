@@ -1,7 +1,6 @@
 @import url("/src/app/styles/variables.css");
 
 .common {
-  
 }
 
 /* colors */
@@ -16,6 +15,11 @@
 .dark {
   color: var(--dark-font);
 }
+
+.grey {
+  color: var(--grey-font)
+}
+/* colors end */
 
 /* font size */
 .s16 {
