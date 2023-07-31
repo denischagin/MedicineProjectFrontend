@@ -43,8 +43,12 @@ export const LoginFormContent: FC = () => {
   return (
     <form onSubmit={handleSubmitForm} className={css.loginForm}>
       <div className={css.fields}>
-        <Text component="label">Эл. Почта/Номер телефона</Text>
+        <Text component="label" htmlFor="email">
+          Эл. Почта/Номер телефона
+        </Text>
         <Input
+          type="email"
+          name="email"
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -52,8 +56,11 @@ export const LoginFormContent: FC = () => {
           fullWidth
         />
 
-        <Text component="label">Пароль</Text>
+        <Text component="label" htmlFor="password">
+          Пароль
+        </Text>
         <InputPassword
+          name="password"
           required
           id="password"
           fullWidth
