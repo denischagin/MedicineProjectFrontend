@@ -14,4 +14,12 @@ export class TokenLocalStorage {
   public static getRefreshToken = () => {
     return localStorage.getItem("refresh");
   };
+
+  public static removeAccessToken = () => {
+    localStorage.removeItem("token");
+  };
+
+  public static removeRefreshToken = () => {
+    localStorage.removeItem("refresh");
+  };
 }

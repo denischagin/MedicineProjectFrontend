@@ -133,7 +133,9 @@ export const RegistrationFormContent: FC = () => {
 
       {isError && (
         <Text color="error" fz="s16" className={css.error}>
-          {JSON.stringify(error.response?.data) ?? error.message}
+          {typeof error.response?.data === "string"
+            ? error.response?.data ?? error.message
+            : error.response?.data.errors.PasswordConfirm[0]}
         </Text>
       )}
     </form>

@@ -6,12 +6,23 @@ import css from "./Header.module.css";
 import burgerMenu from "widgets/Header/assets/burger-menu.svg";
 import { Text } from "shared/components/Text";
 import { useViewer } from "entites/viewer";
+import { useLogout } from "entites/authentication/libs/hooks/logout";
 
 export const Header = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
-  const { currentViewer } = useViewer();
+  const { currentViewer, setCurrentViewer } = useViewer();
 
-  const handleLogout = () => {};
+  const { isSuccess, mutate: logout } = useLogout();
+
+  const handleLogout = () => {
+    if (!currentViewer?.username) return;
+    logout(currentViewer?.username, {
+      onSuccess: () => {
+        setCurrentViewer(null)
+        console.log('in component')
+      },
+    });
+  };
 
   return (
     <header className={css.header}>
