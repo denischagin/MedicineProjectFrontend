@@ -10,9 +10,10 @@ import { TokenLocalStorage } from "shared/libs";
 export const useRegistration = () => {
   const result = useMutation<IAuthResponse, AxiosError<string>, IRegistration>({
     mutationFn: (credits) => AuthenticationService.signUp(credits),
-    onSuccess: ({ token, refreshToken }) => {
+    onSuccess: ({ token, refreshToken, ...user }) => {
       TokenLocalStorage.setAccessToken(token);
       TokenLocalStorage.setRefreshToken(refreshToken);
+      localStorage.setItem("currentViewer", JSON.stringify(user));
     },
   });
 
