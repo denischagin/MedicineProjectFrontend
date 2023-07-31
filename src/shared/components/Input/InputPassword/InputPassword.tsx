@@ -1,22 +1,21 @@
-import React, { FC, InputHTMLAttributes } from "react";
+import React, { FC, InputHTMLAttributes, useState } from "react";
 import { Input } from "../Input/Input";
 import { InputGroup } from "../InputGroup";
 import { InputRight } from "../InputRight";
 import eyeSvg from "../icons/eye.svg";
-import css from './InputPassword.module.css'
+import css from "./InputPassword.module.css";
+import { InputProps } from "../Input/Input.props";
 
-interface InputPasswordProps extends InputHTMLAttributes<HTMLInputElement> {
-  fullWidth?: boolean;
-  showPassword: boolean;
-  setShowPassword: React.Dispatch<React.SetStateAction<boolean>>;
-}
+interface InputPasswordProps
+  extends InputHTMLAttributes<HTMLInputElement>,
+    InputProps {}
 
 export const InputPassword: FC<InputPasswordProps> = ({
-  fullWidth = false,
-  setShowPassword,
-  showPassword,
+  fullWidth,
   ...props
 }) => {
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
     <InputGroup fullWidth={fullWidth}>
       <Input {...props} type={showPassword ? "text" : "password"} />

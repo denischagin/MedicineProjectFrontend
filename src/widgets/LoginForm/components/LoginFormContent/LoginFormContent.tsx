@@ -35,9 +35,9 @@ export const LoginFormContent: FC = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      navigate(paths.home, { replace: true });
       const { email, role, username } = viewer;
       setCurrentViewer({ email, role, username });
+      navigate(paths.home, { replace: true });
     }
   }, [isSuccess, navigate]);
 
@@ -58,8 +58,6 @@ export const LoginFormContent: FC = () => {
           fullWidth
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          showPassword={showPassword}
-          setShowPassword={setShowPassword}
         />
       </div>
 
@@ -74,7 +72,7 @@ export const LoginFormContent: FC = () => {
 
       {isError && (
         <Text color="error" fz="s16" className={css.error}>
-          {error.response?.data}
+          {error.response?.data ?? error.message}
         </Text>
       )}
     </form>

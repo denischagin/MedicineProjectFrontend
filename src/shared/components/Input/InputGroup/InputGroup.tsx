@@ -7,7 +7,10 @@ interface InputGroupProps {
   fullWidth?: boolean;
 }
 
-export const InputGroup: FC<InputGroupProps> = ({ children, fullWidth }) => {
+export const InputGroup: FC<InputGroupProps> = ({
+  children,
+  fullWidth = false,
+}) => {
   const {
     isInputFocused,
     isHovered,

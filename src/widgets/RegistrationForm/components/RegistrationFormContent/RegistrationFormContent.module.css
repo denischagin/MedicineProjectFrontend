@@ -24,4 +24,9 @@
 .submit {
   align-self: center;
   margin-top: 43px;
+  margin-bottom: 10px;
+}
+
+.error {
+  text-align: center;  
 }

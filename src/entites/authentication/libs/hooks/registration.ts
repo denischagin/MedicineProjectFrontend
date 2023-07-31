@@ -8,8 +8,8 @@ import { useMutation, useQueryClient } from "react-query";
 import { TokenLocalStorage } from "shared/libs";
 
 export const useRegistration = () => {
-  const result = useMutation<IAuthResponse, AxiosError, IRegistration>({
-    mutationFn: (credits) => AuthenticationService.signIn(credits),
+  const result = useMutation<IAuthResponse, AxiosError<string>, IRegistration>({
+    mutationFn: (credits) => AuthenticationService.signUp(credits),
     onSuccess: ({ token, refreshToken }) => {
       TokenLocalStorage.setAccessToken(token);
       TokenLocalStorage.setRefreshToken(refreshToken);
