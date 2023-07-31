@@ -22,6 +22,6 @@ export interface TextProps
   extends LabelHTMLAttributes<HTMLElement | HTMLLabelElement> {
   className?: string;
   color?: "error" | "light" | "dark" | "grey";
-  fz?: "s16" | "s20" | "s36" | "s40";
+  fz?: "s16" | "s20" | "s32" | "s36" | "s40";
   component?: TextComponentType;
 }

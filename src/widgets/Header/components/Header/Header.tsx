@@ -14,7 +14,7 @@ export const Header = () => {
   const handleLogout = () => {};
 
   return (
-    <div className={css.header}>
+    <header className={css.header}>
       <DrawerMenu
         isAuth={!!currentViewer}
         onClose={() => setOpenDrawer(false)}
@@ -27,23 +27,28 @@ export const Header = () => {
           DemoProject
         </Text>
 
-        <div className={css.menu}>
+        <nav className={css.nav}>
           {currentViewer ? (
             <Text component="button" onClick={handleLogout}>
               Выйти
             </Text>
           ) : (
-            <>
-              <Link to={paths.login}>Войти</Link>
-              <Link to={paths.registration}>Регистрация</Link>
-            </>
-          )}
-        </div>
+            <ul className={css.menu}>
+              <Text component="li">
+                <Link to={paths.login}>Войти</Link>
+              </Text>
 
-        <div className={css.burger_menu} onClick={() => setOpenDrawer(true)}>
+              <Text component="li">
+                <Link to={paths.registration}>Регистрация</Link>
+              </Text>
+            </ul>
+          )}
+        </nav>
+
+        <button className={css.burger_menu} onClick={() => setOpenDrawer(true)}>
           <img src={burgerMenu} alt="burder-menu" />
-        </div>
+        </button>
       </div>
-    </div>
+    </header>
   );
 };

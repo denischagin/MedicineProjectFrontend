@@ -10,10 +10,18 @@
   border: 0;
   border-radius: 10px;
   width: 200px;
+  transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
 }
 
 .input_focus {
-  outline: 3px solid rgb(39, 0, 215, 0.5);
+  outline: 2px solid rgb(39, 0, 215, 0.5);
+  box-shadow: inset 0px 0px 3px rgb(39, 0, 215, 0.5);
+  background-color: #e6e4fc;
+}
+
+.input_hover {
+  outline: 2px solid rgb(39, 0, 215, 0.5);
+  box-shadow: inset 0px 0px 3px rgb(39, 0, 215, 0.5);
 }
 
 .inputGroup {
@@ -28,6 +36,8 @@
   width: 100%;
   outline: none;
   border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
 }
 
 .inputRight {

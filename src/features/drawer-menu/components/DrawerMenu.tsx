@@ -21,7 +21,7 @@ export const DrawerMenu: FC<DrawerMenuProps> = ({
   isAuth = false,
   handleLogout,
 }) => {
-  const handleLogoutClick: MouseEventHandler<HTMLAnchorElement> = (e) => {
+  const handleLogoutClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     handleLogout();
     onClose();
   };
@@ -36,35 +36,39 @@ export const DrawerMenu: FC<DrawerMenuProps> = ({
           <img src={arrowIcon} alt="arrow" />
         </div>
 
-        {!isAuth ? (
-          <>
-            <Link className={css.menu_item} to={paths.login} onClick={onClose}>
-              <p className={css.menu_item_text}>Войти</p>
-              <img src={loginIcon} alt="login" />
-            </Link>
+        <nav>
+          <ul>
+            {!isAuth ? (
+              <>
+                <li className={css.menu_item}>
+                  <Link to={paths.login} onClick={onClose}>
+                    <p className={css.menu_item_text}>Войти</p>
+                    <img src={loginIcon} alt="login" />
+                  </Link>
+                </li>
 
-            <Link
-              className={css.menu_item}
-              to={paths.registration}
-              onClick={onClose}
-            >
-              <p className={css.menu_item_text}>Регистрация</p>
-            </Link>
-          </>
-        ) : (
-          <Text
-            className={css.menu_item}
-            onClick={handleLogoutClick}
-            component="button"
-          >
-            <p className={css.menu_item_text}>Выйти</p>
-          </Text>
-        )}
+                <li className={css.menu_item}>
+                  <Link to={paths.registration} onClick={onClose}>
+                    <p className={css.menu_item_text}>Регистрация</p>
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <li className={css.menu_item}>
+                <button onClick={handleLogoutClick}>
+                  <Text className={css.menu_item_text} fz="s32">Выйти</Text>
+                </button>
+              </li>
+            )}
 
-        <Link className={css.menu_item} to={paths.info} onClick={onClose}>
-          <p className={css.menu_item_text}>О нас</p>
-          <img src={infoIcon} alt="info" />
-        </Link>
+            <li className={css.menu_item}>
+              <Link to={paths.info} onClick={onClose}>
+                <p className={css.menu_item_text}>О нас</p>
+                <img src={infoIcon} alt="info" />
+              </Link>
+            </li>
+          </ul>
+        </nav>
       </div>
     </Drawer>
   );

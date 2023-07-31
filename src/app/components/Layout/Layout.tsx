@@ -9,9 +9,11 @@ export const Layout = () => {
   return (
     <div className={css.layout}>
       <Header />
-      
+
       <Suspense fallback={<PageLoader />}>
-        <Outlet />
+        <main className={css.main}>
+          <Outlet />
+        </main>
       </Suspense>
     </div>
   );

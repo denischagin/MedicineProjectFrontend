@@ -6,23 +6,30 @@
   width: 290px;
 }
 
-.drawer_menu > .menu_item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.menu_item {
   padding: 10px 18px;
   height: 65px;
   border-top: 1px solid white;
   cursor: pointer;
 }
 
-.drawer_menu > .menu_item_arrow {
-  border: 0;
+.menu_item a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu_item_arrow {
+  display: flex;
   justify-content: end;
+  border: 0;
+}
+
+.menu_item_arrow img {
   margin-right: -10px;
 }
 
-.drawer_menu > .menu_item:last-child {
+.menu_item:last-child {
   border-bottom: 1px solid white;
 }
 

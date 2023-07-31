@@ -1,7 +1,7 @@
 @import url("/src/app/styles/variables.css");
 
 .common {
-  color: inherit
+  color: inherit;
 }
 
 /* colors */
@@ -18,7 +18,7 @@
 }
 
 .grey {
-  color: var(--grey-font)
+  color: var(--grey-font);
 }
 /* colors end */
 
@@ -29,6 +29,10 @@
 
 .s20 {
   font-size: 20px;
+}
+
+.s32 {
+  font-size: 32px;
 }
 
 .s36 {

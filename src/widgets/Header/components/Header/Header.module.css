@@ -11,12 +11,16 @@
   padding: 14px 26px;
 }
 
-.menu {
+.nav {
   display: flex;
 }
 
-.menu a + a {
+.nav * + * {
   margin-left: 86px;
+}
+
+.menu {
+  display: flex;
 }
 
 .burger_menu {
@@ -24,7 +28,7 @@
 }
 
 @media screen and (max-width: 530px) {
-  .menu {
+  .nav {
     display: none;
   }
 
