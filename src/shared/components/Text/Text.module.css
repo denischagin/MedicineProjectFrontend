@@ -1,6 +1,7 @@
 @import url("/src/app/styles/variables.css");
 
 .common {
+  color: inherit
 }
 
 /* colors */

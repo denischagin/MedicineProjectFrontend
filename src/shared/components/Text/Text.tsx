@@ -4,13 +4,14 @@ import { TextProps } from "./Text.props";
 
 export const Text: FC<TextProps> = ({
   className,
-  color = "light",
+  color,
   fz = "s16",
   component = "p",
   ...restProps
 }) => {
-  const classes = [css.common, css[color], css[fz]];
+  const classes = [css.common, css[fz]];
   className && classes.push(className)
+  color && classes.push(css[color])
 
   return createElement(component, {
     className: classes.join(" "),
