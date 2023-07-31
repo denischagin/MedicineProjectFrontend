@@ -1,14 +1,23 @@
-import React, { FC, InputHTMLAttributes } from 'react'
-import css from '../Input.module.css'
+import React, { FC, InputHTMLAttributes, useState } from "react";
+import css from "../Input.module.css";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  fullWidth?: boolean
+  fullWidth?: boolean;
 }
 
-export const Input: FC<InputProps> = ({fullWidth, ...props}) => {
-  const classes = fullWidth ? [css.fullwidth, css.input].join(" ") : css.input
+export const Input: FC<InputProps> = ({ fullWidth, ...props }) => {
+  const classes = [css.input];
+  const [isInputFocused, setInputFocused] = useState(false);
+
+  isInputFocused && classes.push(css.input_focus);
+  fullWidth && classes.push(css.fullwidth);
 
   return (
-    <input className={classes} {...props} />
-  )
-}
+    <input
+      onFocus={() => setInputFocused(true)}
+      onBlur={() => setInputFocused(false)}
+      className={classes.join(" ")}
+      {...props}
+    />
+  );
+};

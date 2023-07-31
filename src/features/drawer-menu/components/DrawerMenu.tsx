@@ -30,7 +30,7 @@ export const DrawerMenu: FC<DrawerMenuProps> = ({
     <Drawer onClose={onClose} open={open} classNameContent={css.drawer_content}>
       <div className={css.drawer_menu}>
         <div
-          className={[css.menu_item, css.menu_item_arrow].join(" ").trim()}
+          className={[css.menu_item, css.menu_item_arrow].join(" ")}
           onClick={onClose}
         >
           <img src={arrowIcon} alt="arrow" />

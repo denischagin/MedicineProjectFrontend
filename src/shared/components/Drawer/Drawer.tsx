@@ -17,16 +17,16 @@ export const Drawer: FC<DrawerProps> = ({
   classNameWrapper,
   ...restProps
 }) => {
-  const defaultClasses = [css.drawer, classNameWrapper];
+  const classes = [css.drawer, classNameWrapper];
+  open && classes.push(css.active);
 
-  const classes = open
-    ? [...defaultClasses, css.active].join(" ").trim()
-    : defaultClasses.join(" ").trim();
+  const classesContent = [css.drawer_content];
+  classNameContent && classesContent.push(classNameContent);
 
   return (
-    <div className={classes} onClick={onClose} {...restProps}>
+    <div className={classes.join(" ")} onClick={onClose} {...restProps}>
       <div
-        className={[css.drawer_content, classNameContent].join(" ").trim()}
+        className={classesContent.join(" ")}
         onClick={(e) => e.stopPropagation()}
       >
         {children}

@@ -1,4 +1,4 @@
-import { FC, ReactElement } from "react";
+import { Children, cloneElement, FC, ReactElement, useState } from "react";
 import css from "../Input.module.css";
 
 interface InputGroupProps {
@@ -7,10 +7,20 @@ interface InputGroupProps {
 }
 
 export const InputGroup: FC<InputGroupProps> = ({ children, fullWidth }) => {
-  const commonClasses = [css.inputGroup, css.input];
-  const classes = fullWidth
-    ? [css.fullwidth, ...commonClasses].join(" ").trim()
-    : commonClasses.join(" ").trim();
+  const classes = [css.inputGroup, css.input];
+  const [isInputFocused, setInputFocused] = useState(false);
 
-  return <div className={classes}>{children}</div>;
+  fullWidth && classes.push(css.fullwidth);
+  isInputFocused && classes.push(css.input_focus);
+
+  return (
+    <div className={classes.join(" ")}>
+      {Children.map(children, (child) =>
+        cloneElement(child, {
+          onFocus: () => setInputFocused(true),
+          onBlur: () => setInputFocused(false),
+        })
+      )}
+    </div>
+  );
 };

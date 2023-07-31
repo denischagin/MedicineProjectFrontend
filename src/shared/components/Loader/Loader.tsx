@@ -11,9 +11,12 @@ export const Loader: FC<LoaderProps> = ({
   size = "medium",
   ...restProps
 }) => {
+  const classes = [css.loader, css[size]];
+  className && classes.push(className);
+
   return (
     <span
-      className={[css.loader, css[size], className].join(" ").trim()}
+      className={classes.join(" ")}
       {...restProps}
     />
   );
