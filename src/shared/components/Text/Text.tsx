@@ -9,7 +9,7 @@ export const Text: FC<TextProps> = ({
   component = "p",
   ...restProps
 }) => {
-  const classes = [css.common, css[color], css[fz], className].join(" ");
+  const classes = [css.common, css[color], css[fz], className].join(" ").trim();
 
   return createElement(component, {
     className: classes,

@@ -13,7 +13,7 @@ export const Container: FC<ContainerProps> = ({
 }) => {
   return (
     <div
-      className={[css.container, className].join(" ")}
+      className={[css.container, className].join(" ").trim()}
       style={{ maxWidth }}
       {...props}
     />
