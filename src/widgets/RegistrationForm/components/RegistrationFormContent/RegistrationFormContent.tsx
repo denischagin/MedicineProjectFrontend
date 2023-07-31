@@ -23,7 +23,6 @@ export const RegistrationFormContent: FC = () => {
 
   const {
     mutate: regMutate,
-    isSuccess,
     isError,
     error,
     data: viewer,
@@ -33,24 +32,25 @@ export const RegistrationFormContent: FC = () => {
 
   const handleSubmitForm: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    regMutate({
-      email,
-      firstName,
-      lastName,
-      middleName,
-      birthDate,
-      password,
-      passwordConfirm,
-    });
+    regMutate(
+      {
+        email,
+        firstName,
+        lastName,
+        middleName,
+        birthDate,
+        password,
+        passwordConfirm,
+      },
+      {
+        onSuccess: (viewer) => {
+          const { email, role, username } = viewer;
+          setCurrentViewer({ email, role, username });
+          navigate(paths.home, { replace: true });
+        },
+      }
+    );
   };
-
-  useEffect(() => {
-    if (isSuccess) {
-      const { email, role, username } = viewer;
-      setCurrentViewer({ email, role, username });
-      navigate(paths.home, { replace: true });
-    }
-  }, [isSuccess, navigate]);
 
   return (
     <form onSubmit={handleSubmitForm} className={css.regForm}>

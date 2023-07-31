@@ -14,7 +14,6 @@ export const useLogout = () => {
       TokenLocalStorage.removeAccessToken();
       TokenLocalStorage.removeRefreshToken();
       localStorage.removeItem("currentViewer");
-      console.log('in hook')
     },
   });
 

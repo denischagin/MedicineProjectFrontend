@@ -17,10 +17,7 @@ export const Header = () => {
   const handleLogout = () => {
     if (!currentViewer?.username) return;
     logout(currentViewer?.username, {
-      onSuccess: () => {
-        setCurrentViewer(null)
-        console.log('in component')
-      },
+      onSuccess: () => setCurrentViewer(null),
     });
   };
 
