@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import css from '../Input.module.css'
+import css from './InputRight.module.css'
 
 interface InputRightProps {
   element: JSX.Element

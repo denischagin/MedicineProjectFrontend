@@ -1,14 +1,27 @@
 import React, { FC, InputHTMLAttributes, useState } from "react";
+import { useInputGroup } from "../hooks/input-group";
 import css from "../Input.module.css";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   fullWidth?: boolean;
+  inputHeight?: "small" | "medium" | "big";
 }
 
-export const Input: FC<InputProps> = ({ fullWidth, ...props }) => {
-  const classes = [css.input];
-  const [isInputFocused, setInputFocused] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+export const Input: FC<InputProps> = ({
+  fullWidth,
+  inputHeight = "medium",
+  ...props
+}) => {
+  const {
+    isInputFocused,
+    isHovered,
+    handleMouseEnter,
+    handleMouseLeave,
+    handleFocus,
+    handleBlur,
+  } = useInputGroup();
+
+  const classes = [css.input, css[inputHeight]];
 
   isHovered && classes.push(css.input_hover);
   isInputFocused && classes.push(css.input_focus);
@@ -16,10 +29,10 @@ export const Input: FC<InputProps> = ({ fullWidth, ...props }) => {
 
   return (
     <input
-      onFocus={() => setInputFocused(true)}
-      onBlur={() => setInputFocused(false)}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       className={classes.join(" ")}
       {...props}
     />

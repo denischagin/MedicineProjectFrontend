@@ -3,7 +3,7 @@ import { Input } from "../Input/Input";
 import { InputGroup } from "../InputGroup";
 import { InputRight } from "../InputRight";
 import eyeSvg from "../icons/eye.svg";
-import css from '../Input.module.css'
+import css from './InputPassword.module.css'
 
 interface InputPasswordProps extends InputHTMLAttributes<HTMLInputElement> {
   fullWidth?: boolean;
