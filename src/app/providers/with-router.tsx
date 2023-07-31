@@ -1,11 +1,5 @@
-import { Suspense } from "react";
 import { BrowserRouter } from "react-router-dom";
+import { PageLoader } from "shared/components/PageLoader";
 
-export const withRouter = (component: () => React.ReactNode) => () => (
-    <BrowserRouter>
-        <Suspense fallback="Loading...">
-            {component()}
-        </Suspense>
-    </BrowserRouter>
-);
-
+export const withRouter = (component: () => React.ReactNode) => () =>
+  <BrowserRouter>{component()}</BrowserRouter>;
