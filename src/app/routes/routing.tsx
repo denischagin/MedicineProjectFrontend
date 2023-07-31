@@ -2,21 +2,8 @@ import { Layout } from "app/components/Layout/Layout";
 import { lazy } from "react";
 import { Route, Routes } from "react-router";
 import { paths } from "shared/routes";
+import { LoginPage, NotFoundPage, RegistrationPage } from "./lazy";
 
-const LoginPage = lazy(() =>
-  import("pages/login").then(({ LoginPage }) => ({ default: LoginPage }))
-);
-
-const NotFoundPage = lazy(() =>
-  import("pages/not-found").then(({ NotFoundPage }) => ({
-    default: NotFoundPage,
-  }))
-);
-const RegistrationPage = lazy(() =>
-  import("pages/registration").then(({ RegistrationPage }) => ({
-    default: RegistrationPage,
-  }))
-);
 
 export const Routing = () => {
   return (
