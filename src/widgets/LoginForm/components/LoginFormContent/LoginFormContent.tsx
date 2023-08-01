@@ -13,28 +13,22 @@ import { useLogin } from "entites/authentication";
 export const LoginFormContent: FC = () => {
   const navigate = useNavigate();
 
-  const {
-    mutate: loginMutate,
-    isError,
-    error,
-    isLoading,
-  } = useLogin();
+  const { mutate: loginMutate, isError, error, isLoading } = useLogin();
   const { setCurrentViewer } = useViewer();
 
   const handleSubmitForm: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
 
-    const email = data.get("email")?.toString();;
-    const password = data.get("password")?.toString();;
+    const email = data.get("email")?.toString();
+    const password = data.get("password")?.toString();
 
-    if (!email || !password ) return
+    if (!email || !password) return;
 
     loginMutate(
       { email, password },
       {
         onSuccess: (viewer) => {
-
           const { email, role, username } = viewer;
           setCurrentViewer({ email, role, username });
           navigate(paths.home, { replace: true });

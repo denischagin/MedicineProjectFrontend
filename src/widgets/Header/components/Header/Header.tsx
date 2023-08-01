@@ -18,6 +18,7 @@ export const Header = () => {
     if (!currentViewer?.username) return;
     logout(currentViewer?.username, {
       onSuccess: () => setCurrentViewer(null),
+      onError: () => setCurrentViewer(null)
     });
   };
 
@@ -29,7 +30,7 @@ export const Header = () => {
         open={openDrawer}
         handleLogout={handleLogout}
       />
-      
+
       <header className={css.header}>
         <div className={css.wrapper}>
           <Text component="h1" fz="s36">
