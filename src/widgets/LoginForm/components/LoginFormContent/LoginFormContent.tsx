@@ -11,10 +11,6 @@ import { useNavigate } from "react-router";
 import { useViewer } from "entites/viewer";
 
 export const LoginFormContent: FC = () => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-
   const navigate = useNavigate();
 
   const {
@@ -28,10 +24,18 @@ export const LoginFormContent: FC = () => {
 
   const handleSubmitForm: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
+    const data = new FormData(e.currentTarget);
+
+    const email = data.get("email")?.toString();;
+    const password = data.get("password")?.toString();;
+
+    if (!email || !password ) return
+
     loginMutate(
       { email, password },
       {
         onSuccess: (viewer) => {
+
           const { email, role, username } = viewer;
           setCurrentViewer({ email, role, username });
           navigate(paths.home, { replace: true });
@@ -46,27 +50,12 @@ export const LoginFormContent: FC = () => {
         <Text component="label" htmlFor="email">
           Эл. Почта/Номер телефона
         </Text>
-        <Input
-          type="email"
-          name="email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          id="login"
-          fullWidth
-        />
+        <Input type="email" name="email" required id="login" fullWidth />
 
         <Text component="label" htmlFor="password">
           Пароль
         </Text>
-        <InputPassword
-          name="password"
-          required
-          id="password"
-          fullWidth
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <InputPassword name="password" required id="password" fullWidth />
       </div>
 
       <Link className={css.help_text} to={paths.registration}>

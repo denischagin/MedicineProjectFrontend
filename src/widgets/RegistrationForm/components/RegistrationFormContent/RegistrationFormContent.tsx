@@ -13,14 +13,6 @@ import css from "./RegistrationFormContent.module.css";
 export const RegistrationFormContent: FC = () => {
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [middleName, setMiddleName] = useState("");
-  const [birthDate, setBirthDate] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
-
   const {
     mutate: regMutate,
     isError,
@@ -32,6 +24,16 @@ export const RegistrationFormContent: FC = () => {
 
   const handleSubmitForm: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
+    const data = new FormData(e.currentTarget);
+
+    const email = data.get("email")?.toString() ?? "";
+    const firstName = data.get("firstName")?.toString() ?? "";
+    const lastName = data.get("lastName")?.toString() ?? "";
+    const middleName = data.get("middleName")?.toString() ?? "";
+    const birthDate = data.get("birthDate")?.toString() ?? "";
+    const password = data.get("password")?.toString() ?? "";
+    const passwordConfirm = data.get("passwordConfirm")?.toString() ?? "";
+
     regMutate(
       {
         email,
@@ -55,74 +57,59 @@ export const RegistrationFormContent: FC = () => {
   return (
     <form onSubmit={handleSubmitForm} className={css.regForm}>
       <div className={css.fields}>
-        <Text component="label" htmlFor="email">Эл. Почта/Номер телефона</Text>
+        <Text component="label" htmlFor="email">
+          Эл. Почта/Номер телефона
+        </Text>
         <Input
           required
           type="email"
           fullWidth
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
           inputHeight="small"
           name="email"
         />
 
-        <Text component="label" htmlFor="lastName">Фамилия</Text>
-        <Input
-          required
-          fullWidth
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          inputHeight="small"
-          name="lastName"
-        />
+        <Text component="label" htmlFor="lastName">
+          Фамилия
+        </Text>
+        <Input required fullWidth inputHeight="small" name="lastName" />
 
-        <Text component="label" htmlFor="firstName">Имя</Text>
-        <Input
-          required
-          fullWidth
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          inputHeight="small"
-          name="firstName"
-        />
+        <Text component="label" htmlFor="firstName">
+          Имя
+        </Text>
+        <Input required fullWidth inputHeight="small" name="firstName" />
 
-        <Text component="label" htmlFor="middleName">Отчество</Text>
+        <Text component="label" htmlFor="middleName">
+          Отчество
+        </Text>
         <Input
-          required
           fullWidth
-          value={middleName}
-          onChange={(e) => setMiddleName(e.target.value)}
           inputHeight="small"
           name="middleName"
+          placeholder="Необязательное поле"
         />
 
-        <Text component="label" htmlFor="birthDate">Дата рождения</Text>
+        <Text component="label" htmlFor="birthDate">
+          Дата рождения
+        </Text>
         <Input
           required
           type="date"
           fullWidth
-          value={birthDate}
-          onChange={(e) => setBirthDate(e.target.value)}
           inputHeight="small"
           name="birthDate"
         />
 
-        <Text component="label" htmlFor="password">Пароль</Text>
-        <InputPassword
-          required
-          fullWidth
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          inputHeight="small"
-          name="password"
-        />
+        <Text component="label" htmlFor="password">
+          Пароль
+        </Text>
+        <InputPassword required fullWidth inputHeight="small" name="password" />
 
-        <Text component="label" htmlFor="passwordConfirm">Повторите пароль</Text>
+        <Text component="label" htmlFor="passwordConfirm">
+          Повторите пароль
+        </Text>
         <InputPassword
           required
           fullWidth
-          value={passwordConfirm}
-          onChange={(e) => setPasswordConfirm(e.target.value)}
           inputHeight="small"
           name="passwordConfirm"
         />
