@@ -22,41 +22,46 @@ export const Header = () => {
   };
 
   return (
-    <header className={css.header}>
+    <>
       <DrawerMenu
         isAuth={!!currentViewer}
         onClose={() => setOpenDrawer(false)}
         open={openDrawer}
         handleLogout={handleLogout}
       />
+      
+      <header className={css.header}>
+        <div className={css.wrapper}>
+          <Text component="h1" fz="s36">
+            DemoProject
+          </Text>
 
-      <div className={css.wrapper}>
-        <Text component="h1" fz="s36">
-          DemoProject
-        </Text>
-
-        <nav className={css.nav}>
-          {currentViewer ? (
-            <Text component="button" onClick={handleLogout}>
-              Выйти
-            </Text>
-          ) : (
-            <ul className={css.menu}>
-              <Text component="li">
-                <Link to={paths.login}>Войти</Link>
+          <nav className={css.nav}>
+            {currentViewer ? (
+              <Text component="button" onClick={handleLogout}>
+                Выйти
               </Text>
+            ) : (
+              <ul className={css.menu}>
+                <Text component="li">
+                  <Link to={paths.login}>Войти</Link>
+                </Text>
 
-              <Text component="li">
-                <Link to={paths.registration}>Регистрация</Link>
-              </Text>
-            </ul>
-          )}
-        </nav>
+                <Text component="li">
+                  <Link to={paths.registration}>Регистрация</Link>
+                </Text>
+              </ul>
+            )}
+          </nav>
 
-        <button className={css.burger_menu} onClick={() => setOpenDrawer(true)}>
-          <img src={burgerMenu} alt="burder-menu" />
-        </button>
-      </div>
-    </header>
+          <button
+            className={css.burger_menu}
+            onClick={() => setOpenDrawer(true)}
+          >
+            <img src={burgerMenu} alt="burder-menu" />
+          </button>
+        </div>
+      </header>
+    </>
   );
 };
