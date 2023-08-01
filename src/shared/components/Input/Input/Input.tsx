@@ -1,6 +1,7 @@
-import React, { FC, InputHTMLAttributes, useState } from "react";
+import { FC, InputHTMLAttributes } from "react";
 import { useInputGroup } from "../hooks/input-group";
-import css from "../Input.module.css";
+import css from "./Input.module.css";
+import { useStyles } from "../hooks/use-styles";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   fullWidth?: boolean;
@@ -20,6 +21,7 @@ export const Input: FC<InputProps> = ({
     handleFocus,
     handleBlur,
   } = useInputGroup();
+  const { input } = useStyles();
 
   const classes = [css.input, css[inputHeight]];
 
@@ -34,6 +36,10 @@ export const Input: FC<InputProps> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={classes.join(" ")}
+      style={{
+        paddingRight: input.paddingRight + "px",
+        paddingLeft: input.paddingLeft + "px",
+      }}
       {...props}
     />
   );

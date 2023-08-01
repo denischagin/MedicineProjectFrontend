@@ -1,6 +1,11 @@
-import { Children, cloneElement, FC, ReactElement, useState } from "react";
-import { useInputGroup } from "../hooks/input-group";
-import css from "../Input.module.css";
+import {
+  Children,
+  cloneElement,
+  FC,
+  ReactElement,
+} from "react";
+import css from "./InputGroup.module.css";
+import { StylesProvider } from "../context/styles-provider";
 
 interface InputGroupProps {
   children: ReactElement | ReactElement[];
@@ -11,32 +16,19 @@ export const InputGroup: FC<InputGroupProps> = ({
   children,
   fullWidth = false,
 }) => {
-  const {
-    isInputFocused,
-    isHovered,
-    handleMouseEnter,
-    handleMouseLeave,
-    handleFocus,
-    handleBlur,
-  } = useInputGroup();
-  const classes = [css.inputGroup, css.input];
+  const classes = [css.inputGroup];
 
-  isHovered && classes.push(css.input_hover);
   fullWidth && classes.push(css.fullwidth);
-  isInputFocused && classes.push(css.input_focus);
 
   return (
-    <div
-      className={classes.join(" ")}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      {Children.map(children, (child) =>
-        cloneElement(child, {
-          onFocus: handleFocus,
-          onBlur: handleBlur,
-        })
-      )}
+    <div className={classes.join(" ")}>
+      <StylesProvider>
+        {Children.map(children, (child) =>
+          cloneElement(child, {
+            fullWidth,
+          })
+        )}
+      </StylesProvider>
     </div>
   );
 };

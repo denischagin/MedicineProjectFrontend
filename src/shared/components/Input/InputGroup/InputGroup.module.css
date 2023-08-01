@@ -1,0 +1,11 @@
+.inputGroup {
+  position: relative;
+  width: 200px;
+  display: flex;
+  padding: 0;
+}
+
+.fullwidth {
+  width: 100%;
+}
+
