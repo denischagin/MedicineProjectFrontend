@@ -1,6 +1,6 @@
-import { useRegistration } from "entites/authentication/libs/hooks";
+import { useRegistration } from "entites/authentication";
 import { useViewer } from "entites/viewer";
-import { FC, FormEventHandler, useEffect, useState } from "react";
+import { FC, FormEventHandler } from "react";
 import { useNavigate } from "react-router";
 import { Button } from "shared/components/Button";
 import { Input } from "shared/components/Input/Input";
@@ -17,7 +17,6 @@ export const RegistrationFormContent: FC = () => {
     mutate: regMutate,
     isError,
     error,
-    data: viewer,
     isLoading,
   } = useRegistration();
   const { setCurrentViewer } = useViewer();
@@ -79,14 +78,9 @@ export const RegistrationFormContent: FC = () => {
         <Input required fullWidth inputHeight="small" name="firstName" />
 
         <Text component="label" htmlFor="middleName">
-          Отчество
+          Отчество (необязательное поле)
         </Text>
-        <Input
-          fullWidth
-          inputHeight="small"
-          name="middleName"
-          placeholder="Необязательное поле"
-        />
+        <Input fullWidth inputHeight="small" name="middleName" />
 
         <Text component="label" htmlFor="birthDate">
           Дата рождения
@@ -128,9 +122,9 @@ export const RegistrationFormContent: FC = () => {
 
       {isError && (
         <Text color="error" fz="s16" className={css.error}>
-          {typeof error.response?.data === "string"
-            ? error.response?.data ?? error.message
-            : error.response?.data.errors.PasswordConfirm[0]}
+          {typeof error.response?.data === "object"
+            ? error.response?.data.errors.PasswordConfirm[0]
+            : error.response?.data ?? error.message}
         </Text>
       )}
     </form>

@@ -4,7 +4,7 @@ import {
   IAuthResponse,
   IRegistration,
 } from "entites/authentication/models/api";
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation } from "react-query";
 import { TokenLocalStorage } from "shared/libs";
 
 export const useRegistration = () => {

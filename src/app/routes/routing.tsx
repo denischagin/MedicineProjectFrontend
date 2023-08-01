@@ -1,5 +1,4 @@
 import { Layout } from "app/components/Layout/Layout";
-import { lazy } from "react";
 import { Route, Routes } from "react-router";
 import { paths } from "shared/routes";
 import { LoginPage, NotFoundPage, RegistrationPage } from "./lazy";

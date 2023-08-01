@@ -1,14 +1,14 @@
-import { FC, FormEventHandler, useState } from "react";
+import { FC, FormEventHandler } from "react";
 import { Button } from "shared/components/Button";
 import { Input } from "shared/components/Input/Input";
 import { InputPassword } from "shared/components/Input/InputPassword";
 import { Link } from "shared/components/Link";
 import { paths } from "shared/routes";
 import css from "./LoginFormContent.module.css";
-import { useLogin } from "./../../../../entites/authentication/libs/hooks/login";
 import { Text } from "shared/components/Text";
 import { useNavigate } from "react-router";
 import { useViewer } from "entites/viewer";
+import { useLogin } from "entites/authentication";
 
 export const LoginFormContent: FC = () => {
   const navigate = useNavigate();
@@ -17,7 +17,6 @@ export const LoginFormContent: FC = () => {
     mutate: loginMutate,
     isError,
     error,
-    data: viewer,
     isLoading,
   } = useLogin();
   const { setCurrentViewer } = useViewer();

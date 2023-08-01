@@ -1,5 +1,5 @@
 import { AuthenticationForm } from "entites/authentication";
-import { SignInGosuslugi } from "features/authentication";
+import { LoginGosuslugi } from "features/authentication";
 import { RegistrationFormContent } from "../RegistrationFormContent/RegistrationFormContent";
 
 export const RegistrationForm = () => {
@@ -7,7 +7,7 @@ export const RegistrationForm = () => {
     <AuthenticationForm
       title="Регистрация"
       form={<RegistrationFormContent />}
-      buttonFooter={<SignInGosuslugi />}
+      buttonFooter={<LoginGosuslugi />}
     />
   );
 };
