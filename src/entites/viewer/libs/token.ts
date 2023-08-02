@@ -1,12 +1,13 @@
 import axios from "axios";
-import { IViewer } from "../models/context";
+import { ITokens } from "../types";
+import { BASE_API } from "shared/constants";
 
 export const postRefreshToken = async (data: {
   accessToken: string;
   refreshToken: string;
 }) => {
-  const response = await axios.post<IViewer>(
-    `https://localhost:5000/api/Accounts/refresh-token`,
+  const response = await axios.post<ITokens>(
+    `${BASE_API}/Accounts/refresh-token`,
     data
   );
   return response.data;

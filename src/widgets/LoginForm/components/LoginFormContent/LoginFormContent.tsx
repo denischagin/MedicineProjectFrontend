@@ -9,6 +9,7 @@ import { Text } from "shared/components/Text";
 import { useNavigate } from "react-router";
 import { useViewer } from "entites/viewer";
 import { useLogin } from "entites/authentication";
+import { Loader } from "shared/components/Loader";
 
 export const LoginFormContent: FC = () => {
   const navigate = useNavigate();
@@ -56,9 +57,13 @@ export const LoginFormContent: FC = () => {
         <Text>Зарегистрироваться</Text>
       </Link>
 
-      <Button className={css.submit}>Войти</Button>
-
-      {isLoading && <Text color="grey">Загрузка...</Text>}
+      {isLoading ? (
+        <Button className={css.submit} color="disabled">
+          Загрузка...
+        </Button>
+      ) : (
+        <Button className={css.submit}>Войти</Button>
+      )}
 
       {isError && (
         <Text color="error" fz="s16" className={css.error}>

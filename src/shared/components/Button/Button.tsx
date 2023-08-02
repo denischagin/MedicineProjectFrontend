@@ -1,10 +1,12 @@
 import React, { ButtonHTMLAttributes, FC } from "react";
 import css from "./Button.module.css";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  color?: "filled" | "disabled"
+}
 
-export const Button: FC<ButtonProps> = ({ className, ...props }) => {
+export const Button: FC<ButtonProps> = ({ className, color="filled", ...props }) => {
   return (
-    <button className={[css.button, className].join(" ")} {...props} />
+    <button className={[css.button, css[color], className].join(" ")} {...props} />
   );
 };

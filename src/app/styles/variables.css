@@ -4,7 +4,10 @@
   --auth-background: #6A94E5;
   --form-background: #6E80C3;
   --input-w-small: "100px";
+
+  /* Button */
   --button-filled-color: #114FAB;
+  --button-disabled-color: grey;
 
   /* Font colors */
   --light-font: #FFFFFF;
