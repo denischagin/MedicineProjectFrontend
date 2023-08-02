@@ -1,6 +1,6 @@
 import { useRegistration } from "entites/authentication";
 import { useViewer } from "entites/viewer";
-import { FC, FormEventHandler } from "react";
+import { FC, FormEventHandler, useState } from "react";
 import { useNavigate } from "react-router";
 import { Button } from "shared/components/Button";
 import { Input } from "shared/components/Input/Input";
@@ -13,12 +13,9 @@ import css from "./RegistrationFormContent.module.css";
 export const RegistrationFormContent: FC = () => {
   const navigate = useNavigate();
 
-  const {
-    mutate: regMutate,
-    isError,
-    error,
-    isLoading,
-  } = useRegistration();
+  const [birthDate, setBirthDate] = useState("");
+
+  const { mutate: regMutate, isError, error, isLoading } = useRegistration();
   const { setCurrentViewer } = useViewer();
 
   const handleSubmitForm: FormEventHandler<HTMLFormElement> = async (e) => {
@@ -86,8 +83,15 @@ export const RegistrationFormContent: FC = () => {
           Дата рождения
         </Text>
         <Input
+          className={
+            birthDate.length === 0
+              ? css.input_date
+              : [css.input_date, css.input_date_focus].join(" ")
+          }
           required
           type="date"
+          value={birthDate}
+          onChange={(e) => setBirthDate(e.target.value)}
           fullWidth
           inputHeight="small"
           name="birthDate"

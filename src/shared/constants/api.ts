@@ -1,1 +1,1 @@
-export const BASE_API = 'https://46.42.38.107:5000/api'
+export const BASE_API = 'https://localhost:5000/api'

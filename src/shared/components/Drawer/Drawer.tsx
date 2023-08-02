@@ -1,4 +1,5 @@
 import { FC, HTMLAttributes, ReactNode } from "react";
+import { createPortal } from "react-dom";
 import css from "./Drawer.module.css";
 
 interface DrawerProps extends HTMLAttributes<HTMLDivElement> {
@@ -23,7 +24,7 @@ export const Drawer: FC<DrawerProps> = ({
   const classesContent = [css.drawer_content];
   classNameContent && classesContent.push(classNameContent);
 
-  return (
+  return createPortal(
     <div className={classes.join(" ")} onClick={onClose} {...restProps}>
       <div
         className={classesContent.join(" ")}
@@ -31,6 +32,7 @@ export const Drawer: FC<DrawerProps> = ({
       >
         {children}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };

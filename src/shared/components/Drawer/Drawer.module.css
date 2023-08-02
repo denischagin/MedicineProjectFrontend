@@ -1,13 +1,15 @@
 .drawer {
   display: flex;
   position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.50);
+  background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
   pointer-events: none;
   transition: all 0.4s ease-in-out;
-  z-index: 20;
 }
 
 .drawer_content {
@@ -26,5 +28,3 @@
 .active .drawer_content {
   transform: translateX(0);
 }
-
-

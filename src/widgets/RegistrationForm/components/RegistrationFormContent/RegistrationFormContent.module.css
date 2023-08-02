@@ -1,3 +1,5 @@
+@import url("/src/app/styles/variables.css");
+
 .regForm {
   display: flex;
   flex-direction: column;
@@ -29,4 +31,12 @@
 
 .error {
   text-align: center;  
+}
+
+.input_date {
+  color: var(--grey-font)
+}
+
+.input_date_focus {
+  color: var(--dark-font)
 }

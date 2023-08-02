@@ -4,7 +4,7 @@
   display: flex;
   outline: 2px solid black;
   background-color: white;
-  color: var(--dark-grey-font);
+  color: var(--dark-font);
   border: 0;
   width: 200px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

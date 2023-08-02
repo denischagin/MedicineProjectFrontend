@@ -6,11 +6,13 @@ import { useStyles } from "../hooks/use-styles";
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   fullWidth?: boolean;
   inputHeight?: "small" | "medium" | "big";
+  className?: string
 }
 
 export const Input: FC<InputProps> = ({
   fullWidth,
   inputHeight = "medium",
+  className,
   ...props
 }) => {
   const {
@@ -23,12 +25,11 @@ export const Input: FC<InputProps> = ({
   } = useInputGroup();
   const { input } = useStyles();
 
-  const classes = [css.input, css[inputHeight]];
+  const classes = [css.input, css[inputHeight], className];
 
   isHovered && classes.push(css.input_hover);
   isInputFocused && classes.push(css.input_focus);
   fullWidth && classes.push(css.fullwidth);
-
   return (
     <input
       onFocus={handleFocus}
