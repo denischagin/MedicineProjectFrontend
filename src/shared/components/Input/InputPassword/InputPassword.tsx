@@ -5,6 +5,7 @@ import { InputRight } from "../InputRight";
 import eyeSvg from "../icons/eye.svg";
 import css from "./InputPassword.module.css";
 import { InputProps } from "../Input/Input.props";
+import { Tooltip } from "shared/components/Tooltip";
 
 interface InputPasswordProps
   extends InputHTMLAttributes<HTMLInputElement>,
@@ -21,12 +22,18 @@ export const InputPassword: FC<InputPasswordProps> = ({
       <Input {...props} type={showPassword ? "text" : "password"} />
       <InputRight
         element={
-          <img
-            className={css.password_button}
-            src={eyeSvg}
-            alt="eye"
-            onClick={() => setShowPassword((prev) => !prev)}
-          />
+          <Tooltip
+            text={showPassword ? "Спрятать пароль" : "Посмотреть пароль"}
+            position="bottom"
+            size="large"
+          >
+            <img
+              className={css.password_button}
+              src={eyeSvg}
+              alt="eye"
+              onClick={() => setShowPassword((prev) => !prev)}
+            />
+          </Tooltip>
         }
       />
     </InputGroup>
