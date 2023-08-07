@@ -1,6 +1,9 @@
 :root {
+  /* Header */
   --header-background: #114FAB;
+  --header-height: 72px;
   --drawer-menu-bg: #114FAB;
+  
   --auth-background: #6A94E5;
   --form-background: #6E80C3;
   --input-w-small: "100px";
@@ -16,5 +19,10 @@
   --grey-font: rgb(138 138 138);
   --dark-grey-font: rgb(67, 67, 67);
 
-  --header-height: 72px;
+
+  /* Tooltip variants */
+  --tooltip-success: green;
+  --tooltip-warning: orange;
+  --tooltip-error: red;
+  --tooltip-default: #000;
 }

@@ -1,4 +1,11 @@
-import React, { Children, cloneElement, ReactElement, useState } from "react";
+import React, {
+  Children,
+  cloneElement,
+  ReactElement,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import css from "./Tooltip.module.css";
 
 interface TooltipProps {
@@ -7,6 +14,7 @@ interface TooltipProps {
   children: ReactElement | ReactElement[];
   size?: "small" | "medium" | "large";
   color?: "default" | "error" | "success" | "warning";
+  delay?: number;
 }
 
 export const Tooltip: React.FC<TooltipProps> = ({
@@ -14,15 +22,26 @@ export const Tooltip: React.FC<TooltipProps> = ({
   position = "top",
   size = "medium",
   color = "default",
+  delay = 0,
   children,
 }) => {
   const [showTooltip, setShowTooltip] = useState(false);
 
+  const timer = useRef<NodeJS.Timeout>();
+
+  useEffect(() => timer.current && clearTimeout(timer.current), []);
+
   const handleMouseOver = () => {
-    setShowTooltip(true);
+    if (timer.current) clearTimeout(timer.current);
+
+    timer.current = setTimeout(() => {
+      setShowTooltip(true);
+    }, delay);
   };
 
   const handleMouseLeave = () => {
+    if (timer.current) clearTimeout(timer.current);
+    
     setShowTooltip(false);
   };
 
