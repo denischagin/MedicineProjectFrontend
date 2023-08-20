@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import css from "./AuthenticationForm.module.css";
+import css from "./AuthenticationForm.module.scss";
 import formImg from "entites/authentication/assets/form-img.png";
 import { Text } from "shared/components/Text";
 

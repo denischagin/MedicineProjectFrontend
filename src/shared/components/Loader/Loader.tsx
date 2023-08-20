@@ -1,5 +1,5 @@
 import React, { FC, HTMLAttributes } from "react";
-import css from "./Loader.module.css";
+import css from "./Loader.module.scss";
 
 interface LoaderProps extends HTMLAttributes<HTMLSpanElement> {
   className?: string;

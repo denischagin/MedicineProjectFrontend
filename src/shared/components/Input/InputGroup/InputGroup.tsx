@@ -4,7 +4,7 @@ import {
   FC,
   ReactElement,
 } from "react";
-import css from "./InputGroup.module.css";
+import css from "./InputGroup.module.scss";
 import { StylesProvider } from "../context/styles-provider";
 
 interface InputGroupProps {

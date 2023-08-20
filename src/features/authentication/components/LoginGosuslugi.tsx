@@ -1,5 +1,5 @@
 import React from 'react'
-import css from "./LoginGosuslugi.module.css"
+import css from "./LoginGosuslugi.module.scss"
 
 export const LoginGosuslugi = () => {
   return (

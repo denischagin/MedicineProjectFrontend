@@ -6,7 +6,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import css from "./Tooltip.module.css";
+import css from "./Tooltip.module.scss";
 
 interface TooltipProps {
   text: string;

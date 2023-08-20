@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ViewerContext } from "./context";
-import { useRefresh } from "../api/refresh";
+import { useRefresh } from "../libs/hooks/refresh";
 import { TokenLocalStorage } from "shared/libs";
 import { IViewer, IViewerContext } from "../types";
 

@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes, ReactNode } from "react";
 import { createPortal } from "react-dom";
-import css from "./Drawer.module.css";
+import css from "./Drawer.module.scss";
 
 interface DrawerProps extends HTMLAttributes<HTMLDivElement> {
   open: boolean;

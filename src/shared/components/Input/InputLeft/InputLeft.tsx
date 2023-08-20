@@ -1,5 +1,5 @@
 import React, { FC, useRef } from "react";
-import css from "./InputLeft.module.css";
+import css from "./InputLeft.module.scss";
 import { useStyles } from "../hooks/use-styles";
 
 interface InputLeftProps {

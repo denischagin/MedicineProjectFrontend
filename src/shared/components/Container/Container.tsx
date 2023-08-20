@@ -1,5 +1,5 @@
 import React, { FC, HTMLAttributes } from "react";
-import css from "./Container.module.css";
+import css from "./Container.module.scss";
 
 interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
   maxWidth?: string;

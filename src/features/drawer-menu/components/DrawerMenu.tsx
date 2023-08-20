@@ -2,7 +2,7 @@ import React, { FC, MouseEventHandler } from "react";
 import { Drawer } from "shared/components/Drawer";
 import { Link } from "shared/components/Link";
 import { paths } from "shared/routes";
-import css from "./DrawerMenu.module.css";
+import css from "./DrawerMenu.module.scss";
 import infoIcon from "features/drawer-menu/assets/info.svg";
 import loginIcon from "features/drawer-menu/assets/log-in.svg";
 import arrowIcon from "features/drawer-menu/assets/arrow.svg";

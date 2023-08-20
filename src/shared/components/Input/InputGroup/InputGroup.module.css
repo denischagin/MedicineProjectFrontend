@@ -4,8 +4,6 @@
   display: flex;
   padding: 0;
 }
-
-.fullwidth {
+.inputGroup.fullwidth {
   width: 100%;
-}
-
+}/*# sourceMappingURL=InputGroup.module.css.map */

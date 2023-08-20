@@ -1,0 +1,54 @@
+@import "/src/app/styles/variables";
+
+.header {
+  background: $header-background;
+  z-index: 15;
+  
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 26px;
+    height: $header-height;
+
+    .nav {
+      display: flex;
+
+      * + * {
+        margin-left: 86px;
+      }
+
+      button {
+        display: none;
+      }
+    }
+
+    .menu {
+      display: flex;
+    }
+
+    .burger_menu {
+      display: none;
+    }
+
+    @media screen and (max-width: 630px) {
+      .nav {
+        display: none;
+      }
+
+      .menu {
+        display: none;
+      }
+
+      .burger_menu {
+        display: flex;
+      }
+
+      button {
+        display: flex;
+      }
+
+      flex-direction: row-reverse;
+    }
+  }
+}

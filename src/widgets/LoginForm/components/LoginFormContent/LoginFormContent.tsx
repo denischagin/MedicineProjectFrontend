@@ -4,7 +4,7 @@ import { Input } from "shared/components/Input/Input";
 import { InputPassword } from "shared/components/Input/InputPassword";
 import { Link } from "shared/components/Link";
 import { paths } from "shared/routes";
-import css from "./LoginFormContent.module.css";
+import css from "./LoginFormContent.module.scss";
 import { Text } from "shared/components/Text";
 import { useNavigate } from "react-router";
 import { useViewer } from "entites/viewer";

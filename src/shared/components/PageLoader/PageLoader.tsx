@@ -1,5 +1,5 @@
 import React from "react";
-import css from "./PageLoader.module.css";
+import css from "./PageLoader.module.scss";
 
 export const PageLoader = () => {
   return (

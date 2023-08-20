@@ -1,4 +1,4 @@
-@import url("/src/app/styles/variables.css");
+@import "/src/app/styles/variables";
 
 * {
   margin: 0;
@@ -8,7 +8,7 @@
 
 body {
   font-family: "Inter";
-  color: var(--light-font);
+  color: $light-font;
   font-weight: 800;
 }
 

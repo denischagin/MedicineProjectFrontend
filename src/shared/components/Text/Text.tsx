@@ -1,5 +1,5 @@
 import { createElement, FC } from "react";
-import css from "./Text.module.css";
+import css from "./Text.module.scss";
 import { TextProps } from "./Text.props";
 
 export const Text: FC<TextProps> = ({

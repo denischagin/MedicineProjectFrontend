@@ -1,0 +1,20 @@
+@import "/src/app/styles/variables";
+
+.button {
+  padding: 10px 8px;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 10px;
+  border: 1px solid #000;
+  width: fit-content;
+  cursor: pointer;
+
+  &.filled {
+    background-color: $button-filled-color;
+  }
+  
+  &.disabled {
+    background-color: $button-disabled-color;
+  }
+}
+

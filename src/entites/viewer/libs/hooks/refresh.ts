@@ -1,8 +1,8 @@
 import { useMutation } from "react-query";
 import { TokenLocalStorage } from "shared/libs";
-import { postRefreshToken } from "../libs/token";
 import { AxiosError } from "axios";
-import { ITokens } from "../types";
+import { ITokens } from "../../types";
+import { postRefreshToken } from "entites/viewer/api/token";
 
 export const useRefresh = () => {
   return useMutation<ITokens, AxiosError<string>, ITokens>({

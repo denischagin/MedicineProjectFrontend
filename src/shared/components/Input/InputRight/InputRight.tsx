@@ -1,5 +1,5 @@
 import { FC, useRef } from "react";
-import css from "./InputRight.module.css";
+import css from "./InputRight.module.scss";
 import { useStyles } from "../hooks/use-styles";
 
 interface InputRightProps {

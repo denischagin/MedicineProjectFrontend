@@ -1,0 +1,19 @@
+@import "/src/app/styles/variables";
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  background: url(../../assets/common-bg.png) no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  height: 100%;
+
+  .main {
+    flex-grow: 1;
+    display: flex;
+
+    @media screen and (max-width: 630px) {
+      margin-top: var(--header-height);
+    }
+  }
+}

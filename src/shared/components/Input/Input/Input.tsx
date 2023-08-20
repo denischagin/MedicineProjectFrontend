@@ -1,6 +1,6 @@
 import { FC, InputHTMLAttributes } from "react";
 import { useInputGroup } from "../hooks/input-group";
-import css from "./Input.module.css";
+import css from "./Input.module.scss";
 import { useStyles } from "../hooks/use-styles";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {

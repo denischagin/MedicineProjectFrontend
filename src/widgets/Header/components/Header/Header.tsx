@@ -2,7 +2,7 @@ import { DrawerMenu } from "features/drawer-menu";
 import { useState } from "react";
 import { Link } from "shared/components/Link";
 import { paths } from "shared/routes";
-import css from "./Header.module.css";
+import css from "./Header.module.scss";
 import burgerMenu from "widgets/Header/assets/burger-menu.svg";
 import { Text } from "shared/components/Text";
 import { useViewer } from "entites/viewer";

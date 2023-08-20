@@ -1,7 +1,7 @@
-import { Layout } from "app/components/Layout/Layout";
 import { Route, Routes } from "react-router";
 import { paths } from "shared/routes";
 import { LoginPage, NotFoundPage, RegistrationPage } from "./lazy";
+import { Layout } from "../components/Layout/Layout";
 
 
 export const Routing = () => {

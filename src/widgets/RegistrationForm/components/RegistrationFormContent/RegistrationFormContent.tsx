@@ -8,7 +8,7 @@ import { InputPassword } from "shared/components/Input/InputPassword";
 import { Link } from "shared/components/Link";
 import { Text } from "shared/components/Text";
 import { paths } from "shared/routes";
-import css from "./RegistrationFormContent.module.css";
+import css from "./RegistrationFormContent.module.scss";
 
 export const RegistrationFormContent: FC = () => {
   const navigate = useNavigate();

@@ -1,0 +1,44 @@
+@import "/src/app/styles/variables";
+
+.common {
+  color: inherit;
+
+  /* colors */
+  &.error {
+    color: $error-font;
+  }
+
+  &.light {
+    color: $light-font;
+  }
+
+  &.dark {
+    color: $dark-font;
+  }
+
+  &.grey {
+    color: $grey-font;
+  }
+  /* colors end */
+
+  /* font size */
+  &.s16 {
+    font-size: 16px;
+  }
+
+  &.s20 {
+    font-size: 20px;
+  }
+
+  &.s32 {
+    font-size: 32px;
+  }
+
+  &.s36 {
+    font-size: 36px;
+  }
+
+  &.s40 {
+    font-size: 40px;
+  }
+}

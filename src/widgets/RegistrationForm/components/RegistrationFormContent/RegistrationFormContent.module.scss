@@ -1,0 +1,42 @@
+@import "/src/app/styles/variables";
+
+.regForm {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+
+  .fields {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    label {
+      margin: 8px 0;
+    }
+  }
+
+  .help_text {
+    margin-top: 17px;
+    text-align: center;
+    font-size: 16px;
+    text-decoration-line: underline;
+  }
+
+  .submit {
+    align-self: center;
+    margin-top: 43px;
+    margin-bottom: 10px;
+  }
+
+  .error {
+    text-align: center;  
+  }
+
+  .input_date {
+    color: $grey-font
+  }
+
+  .input_date_focus {
+    color: $dark-font
+  }
+}
