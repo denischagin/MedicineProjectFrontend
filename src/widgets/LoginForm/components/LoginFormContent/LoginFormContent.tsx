@@ -6,36 +6,20 @@ import { Link } from "shared/components/Link";
 import { paths } from "shared/routes";
 import css from "./LoginFormContent.module.scss";
 import { Text } from "shared/components/Text";
-import { useNavigate } from "react-router";
-import { useViewer } from "entites/viewer";
 import { useLogin } from "entites/authentication";
-import { Loader } from "shared/components/Loader";
+import { getFormDataValue } from "shared/libs";
 
 export const LoginFormContent: FC = () => {
-  const navigate = useNavigate();
-
   const { mutate: loginMutate, isError, error, isLoading } = useLogin();
-  const { setCurrentViewer } = useViewer();
 
-  const handleSubmitForm: FormEventHandler<HTMLFormElement> = async (e) => {
+  const handleSubmitForm: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
 
-    const email = data.get("email")?.toString();
-    const password = data.get("password")?.toString();
+    const email = getFormDataValue(data, "email");
+    const password = getFormDataValue(data, "password");
 
-    if (!email || !password) return;
-
-    loginMutate(
-      { email, password },
-      {
-        onSuccess: (viewer) => {
-          const { email, role, username } = viewer;
-          setCurrentViewer({ email, role, username });
-          navigate(paths.home, { replace: true });
-        },
-      }
-    );
+    loginMutate({ email, password });
   };
 
   return (

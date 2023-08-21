@@ -27,6 +27,8 @@ export const Header = () => {
     });
   };
 
+  const isLoading = isLoadingViewer || isLoadingLogout;
+
   return (
     <header className={css.header}>
       <div className={css.wrapper}>
@@ -41,7 +43,7 @@ export const Header = () => {
         </Text>
 
         <nav className={css.nav}>
-          {isLoadingViewer || isLoadingLogout ? (
+          {isLoading ? (
             <Loader />
           ) : (
             <>
@@ -64,7 +66,7 @@ export const Header = () => {
           )}
         </nav>
 
-        {isLoadingViewer || isLoadingLogout ? (
+        {isLoading ? (
           <Loader size="small" className={css.burger_menu} />
         ) : (
           <button

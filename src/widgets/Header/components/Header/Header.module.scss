@@ -3,7 +3,7 @@
 .header {
   background: $header-background;
   z-index: 15;
-  
+
   .wrapper {
     display: flex;
     align-items: center;
@@ -16,10 +16,6 @@
 
       * + * {
         margin-left: 86px;
-      }
-
-      button {
-        display: none;
       }
     }
 
@@ -43,11 +39,7 @@
       .burger_menu {
         display: flex;
       }
-
-      button {
-        display: flex;
-      }
-
+      
       flex-direction: row-reverse;
     }
   }

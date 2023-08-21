@@ -1,2 +1,2 @@
 export { AuthenticationForm } from "./components/AuthenticationForm/AuthenticationForm";
-export * from './libs/hooks/index'
+export * from './libs/hooks'

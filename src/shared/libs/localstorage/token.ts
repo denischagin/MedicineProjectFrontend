@@ -1,25 +1,28 @@
 export class TokenLocalStorage {
+  private static accessKey = "token";
+  private static refreshKey = "refresh";
+
   public static setAccessToken = (token: string) => {
-    localStorage.setItem("token", token);
+    localStorage.setItem(this.accessKey, token);
   };
 
   public static setRefreshToken = (token: string) => {
-    localStorage.setItem("refresh", token);
+    localStorage.setItem(this.refreshKey, token);
   };
 
   public static getAccessToken = () => {
-    return localStorage.getItem("token");
+    return localStorage.getItem(this.accessKey);
   };
 
   public static getRefreshToken = () => {
-    return localStorage.getItem("refresh");
+    return localStorage.getItem(this.refreshKey);
   };
 
   public static removeAccessToken = () => {
-    localStorage.removeItem("token");
+    localStorage.removeItem(this.accessKey);
   };
 
   public static removeRefreshToken = () => {
-    localStorage.removeItem("refresh");
+    localStorage.removeItem(this.refreshKey);
   };
 }

@@ -1,7 +1,5 @@
 import { useRegistration } from "entites/authentication";
-import { useViewer } from "entites/viewer";
 import { FC, FormEventHandler, useState } from "react";
-import { useNavigate } from "react-router";
 import { Button } from "shared/components/Button";
 import { Input } from "shared/components/Input/Input";
 import { InputPassword } from "shared/components/Input/InputPassword";
@@ -9,45 +7,28 @@ import { Link } from "shared/components/Link";
 import { Text } from "shared/components/Text";
 import { paths } from "shared/routes";
 import css from "./RegistrationFormContent.module.scss";
+import { getFormDataValue } from "shared/libs";
 
 export const RegistrationFormContent: FC = () => {
-  const navigate = useNavigate();
-
   const [birthDate, setBirthDate] = useState("");
 
   const { mutate: regMutate, isError, error, isLoading } = useRegistration();
-  const { setCurrentViewer } = useViewer();
 
-  const handleSubmitForm: FormEventHandler<HTMLFormElement> = async (e) => {
+  const handleSubmitForm: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
 
-    const email = data.get("email")?.toString() ?? "";
-    const firstName = data.get("firstName")?.toString() ?? "";
-    const lastName = data.get("lastName")?.toString() ?? "";
-    const middleName = data.get("middleName")?.toString() ?? "";
-    const birthDate = data.get("birthDate")?.toString() ?? "";
-    const password = data.get("password")?.toString() ?? "";
-    const passwordConfirm = data.get("passwordConfirm")?.toString() ?? "";
+    const registerData = {
+      email: getFormDataValue(data, "email"),
+      firstName: getFormDataValue(data, "firstName"),
+      lastName: getFormDataValue(data, "lastName"),
+      middleName: getFormDataValue(data, "middleName"),
+      birthDate: getFormDataValue(data, "birthDate"),
+      password: getFormDataValue(data, "password"),
+      passwordConfirm: getFormDataValue(data, "passwordConfirm"),
+    };
 
-    regMutate(
-      {
-        email,
-        firstName,
-        lastName,
-        middleName,
-        birthDate,
-        password,
-        passwordConfirm,
-      },
-      {
-        onSuccess: (viewer) => {
-          const { email, role, username } = viewer;
-          setCurrentViewer({ email, role, username });
-          navigate(paths.home, { replace: true });
-        },
-      }
-    );
+    regMutate(registerData);
   };
 
   return (
